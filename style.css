@@ -1,0 +1,179 @@
+@charset "utf-8";
+
+body{
+  margin: 0;
+}
+
+
+header{
+  background-color: #eee;
+  text-align: center;
+  padding: 32px 0;
+}
+
+header img{
+  border-radius: 50%;
+}
+
+h1{
+  margin:16px 0 0;
+  font-weight: normal;
+  font-size: 24px;
+}
+
+p{
+  margin: 0;
+}
+
+main{
+  padding: 64px 0;
+}
+
+h2{
+  margin: 0;
+  font-weight: normal;
+  font-size: 24px;
+  text-align: center;
+}
+
+h3{
+  margin: 0;
+  font-weight: normal;
+  font-size: 20px;
+  margin: 16px 0 0;
+}
+
+a{
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+section{
+  width: 400px;
+  margin: 64px auto 0;
+}
+
+section p{
+  margin-top: 16px;
+  line-height: 1.8;
+}
+
+/* 共通セクションスタイル */
+.ABOUT, .SKILLS, .WORKS, .GOALS {
+  max-width: 960px;
+  margin: 64px auto;
+  padding: 32px;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* セクション見出し */
+.ABOUT h2, .SKILLS h2, .WORKS h2, .GOALS h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 24px;
+  color: #333;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 8px;
+}
+
+/* テキスト整形 */
+.ABOUT p, .GOALS p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  text-align: center;
+}
+
+/* SKILLS：リスト横並びカード化 */
+.SKILLS ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.SKILLS li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* WORKS：作品の並べ方 */
+.WORKS {
+  display: grid;
+  gap: 24px;
+}
+
+/* 各作品セクション */
+.WORKS section {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.WORKS section:hover {
+  transform: translateY(-4px);
+}
+
+.WORKS img {
+  display: block;
+  margin: 0 auto 12px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.WORKS h3 {
+  text-align: center;
+  margin: 8px 0;
+  font-size: 20px;
+}
+
+.WORKS a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.WORKS p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+  text-align: center;
+}
+
+
+
+footer{
+  border-top: 1px solid #ccc;
+  text-align: center;
+  padding: 64px 0;
+}
+
+small{
+  color: #aaa;
+  font-size: 14px;
+}
+
+
+/* フッターSNS */
+footer address {
+  text-align: center;
+  margin: 32px 0;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>英会話練習アプリ</title>
+</head>
+<body>
+  <h1>簡単な英会話練習アプリ</h1>
+
+  <h2>フレーズを選択して再生</h2>
+  <button onclick="playPhrase('hello.mp3')">Hello, how are you?</button>
+  <button onclick="playPhrase('thankyou.mp3')">I’m fine, thank you. And you?</button>
+
+  <h2>録音して自分の声を確認</h2>
+  <button id="recordBtn">録音開始</button>
+  <button id="stopBtn" disabled>録音停止</button>
+  <audio id="playback" controls></audio>
+
+  <script>
+    // フレーズ再生
+    function playPhrase(audioFile) {
+      const audio = new Audio(audioFile);
+      audio.play();
+    }
+
+    // 録音機能
+    let mediaRecorder;
+    let audioChunks = [];
+
+    document.getElementById('recordBtn').onclick = async () => {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.start();
+
+      audioChunks = [];
+      mediaRecorder.ondataavailable = event => audioChunks.push(event.data);
+
+      document.getElementById('recordBtn').disabled = true;
+      document.getElementById('stopBtn').disabled = false;
+    };
+
+    document.getElementById('stopBtn').onclick = () => {
+      mediaRecorder.stop();
+      mediaRecorder.onstop = () => {
+        const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const playback = document.getElementById('playback');
+        playback.src = audioUrl;
+      };
+
+      document.getElementById('recordBtn').disabled = false;
+      document.getElementById('stopBtn').disabled = true;
+    };
+  </script>
+</body>
+</html>
