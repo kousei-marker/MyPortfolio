@@ -1,14 +1,47 @@
 @charset "utf-8";
 
-body{
-  margin: 0;
+/* 全体の背景画像 */
+body {
+  background-image: url('building-8246152_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* オーバーレイ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5); /* 半透明の黒 */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* メインコンテンツを前面に */
+main, header, footer {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+/* テキストに影をつけて読みやすく */
+h1, h2, h3, p, li {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
 }
 
 
-header{
-  background-color: #eee;
+/* headerの背景を半透明に */
+header {
+  background-color: rgba(255,255,255,0.7); /* 半透明の白 */
   text-align: center;
   padding: 32px 0;
+  border-radius: 16px;
+  max-width: 960px;
+  margin: 32px auto 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 header img{
@@ -176,4 +209,23 @@ small{
 footer address {
   text-align: center;
   margin: 32px 0;
+}
+
+/* 共通セクションスタイル */
+.ABOUT, .SKILLS, .WORKS, .GOALS {
+  max-width: 960px;
+  margin: 64px auto;
+  padding: 32px;
+  background-color: rgba(255,255,255,0.7); /* 半透明の白に変更 */
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 各作品セクション */
+.WORKS section {
+  background-color: rgba(255,255,255,0.8); /* 半透明の白に変更 */
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
 }
